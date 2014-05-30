@@ -58,7 +58,7 @@ p {
             }
         }
 
-        .user-button {
+        .username-button {
             border-radius: 3px;
             border: 1px solid #4C0029;
             background-color: #F08;
@@ -88,10 +88,66 @@ p {
     }
 }
 
+.owner-input {
+    float: left;
+    background-color: #333;
+    margin: 100px 10px 0 0;
+    height: 200px;
+    width: 325px;
+
+    .username-message {
+        font-family: 'Josefin Slab', serif;
+        font-size: 20px;
+        height: 100px;
+        margin: 20px;
+        padding: 10px;
+        width: 280px;
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+               -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                    box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: #F08;
+            box-shadow: 0 0 10px #f08;
+        }
+
+    }
+
+    .username-message-button {
+        border-radius: 3px;
+        border: 1px solid #4C0029;
+        background-color: #F08;
+        color: #FFF;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 0 0 10px 20px;
+        min-height: 20px;
+        padding: 9px;
+        text-align: center;
+
+        &:focus {
+            outline-color: transparent;
+            outline-style: none;
+        }
+
+        &:hover {
+            background-color: #FF80C4;
+            color: #333;
+        }
+
+        &:active {
+            background-color: #B2005F;
+            color: #FFF;
+        }
+    }
+}
+
 .chat-content {
+    float: left;
     background-color: #D6D6D6;
-    margin: 100px auto 80px;
-    height: 800px;
+    margin: 100px auto 0;
+    height: 600px;
     width: 800px;
     overflow: scroll;
 
