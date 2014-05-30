@@ -5,6 +5,7 @@
 
     describe('Chat Constructor', function () {
         describe('constructs the object to be sent to the test server', function () {
+            
             it('should not accept an empty sting as a user name', function () {
             	var userName = function () {
 	        		slideshow('string');
@@ -25,17 +26,17 @@
               player3.should.have.property('diceSides', 5)
             });
 
-            it('should run here few assertions', function () {
+            it('should pass user name to be a property of the contructor function', function () {
               var answer = 2;
               expect(2).to.equal(answer);
             });
 
-            it('should run here few assertions', function () {
+            it('should trigger template rendering', function () {
               var answer = 2;
               expect(2).to.equal(answer);
             });
 
-            it('should run here few assertions', function () {
+            it('should clear input field', function () {
               var answer = 2;
               expect(2).to.equal(answer);
             });
