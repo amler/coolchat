@@ -6,18 +6,22 @@
     describe('Chat Constructor', function () {
         describe('constructs the object to be sent to the test server', function () {
             
-            it('should not accept an empty sting as a user name', function () {
-            	var userName = function () {
-	        		slideshow('string');
+            $('.submit').click();
+
+            it('should not accept an empty string or max character as a user name', function () {
+            	var userName = $('.username-input').val('');
+              var emptyString = function () {
+	        		emptyString(userName);
 	        	}
-            	expect
+            	expect(emptyString).to.throw(Error);
             });
 
   	      	it('should not accept more than 15 characters for a user name.', function(){
-  	        	var stringArray = function () {
-  	        		slideshow('string');
+  	        	var userName = $('.username-input').val('verylongassstring');
+              var maxCharacter = function () {
+  	        		maxCharacter(userName);
   	        	}
-  	        	expect(stringArray).to.throw(Error)
+  	        	expect(maxCharacter).to.throw(Error)
   	      	});
 
             it('should not accept numbers for a user name.', function () {
