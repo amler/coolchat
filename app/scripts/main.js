@@ -1,18 +1,20 @@
 // var serverUrl = 'http://tiny-pizza-server.herokuapp.com/collections/chat-messages/';
 
-//$.getJSON('http://tiny-pizza-server.herokuapp.com/collections/chat-messages').done(setUserData);
+//$.getJSON(serverUrl).done(setUserData);
 
 
-//// Constructor
+//// Constructor... prototype?//////
 
-function Coolchat (userName) {
-	this.user = userName;
-    //message: everyone still having fun?,
+/*function Setmessage (userMessage) {
+    message: ,
     //time: Date.now();,
     //this.meta:"",
-    this.appID = "Nunya";
-}
+   	this.appID = "Nunya";
+}*/
 
+function Setuser (userName) {
+	this.user = userName;
+}
 
 
 
@@ -20,7 +22,8 @@ $('.username-button').click(function(){
 	
 	var userName = $('.username-input').val();
 	var userLength = userName.length;
-	
+	//console.log(userName);
+
 	// using regex to filter out any special characters from the user name
 	// executes a search for a match between a regular expression and a specified string
 	if (/[^a-zA-Z0-9]/.test(userName)) {    
@@ -38,18 +41,21 @@ $('.username-button').click(function(){
 	
 	} else {
 	//else send value to the object constructor 
-		var userChat = new Coolchat(userName);
-		//document breaks everything!!!!! reverted back to classes in css & html
-		//document.getElementById('username-input').reset()
+		var coolGal = new Setuser(userName);
+		console.log(coolGal);
 	}
+	// clears value in username input
+	$('.username-input').val('');
 });
   	
+$('.message-button').click(function() {
+	var userMessage = $('.chat-message').val();
+	var messageLength = userMessage.length;
 
+	if (messageLength <= 0) {
+		alert('Yeah, well, you know, like, that\'s just where you put down your opinion, man.');
+		throw new Error ('Please select a smaller user name.');
+	}
+	
+})
 
-
-
-/*} else {if (user <= 0 || user  > 15) {
-// alert if user name is greater than 15 or less than 0
-alert('Yeah, well, you know, that\'s just, like, just put down your opinion, man.');
-throw new Error ('Please select a smaller user name.');
-} else {*/
