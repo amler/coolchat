@@ -44,6 +44,13 @@ p {
         float: left;
         margin: 20px;
         width: 275px;
+        display: none;
+
+        .greeting {
+            color: #FFF;
+            display: inline-block;
+            margin: 0 10px 0 0;
+        }
 
         .username-input {
             font-size: 18px;
@@ -88,7 +95,8 @@ p {
     }
 }
 
-.owner-input {
+.message-input {
+    display: none;
     float: left;
     background-color: #333;
     margin: 200px 10px 0 0;
@@ -146,7 +154,7 @@ p {
 }
 
 .chat-content {
-    float: left;
+    
     background-color: #D6D6D6;
     border-radius: 5px;
     margin: 100px auto 0;

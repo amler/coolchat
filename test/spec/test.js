@@ -41,6 +41,18 @@
         coolGal.should.have.property('user', 'Scamler')
       });
 
+      it('should hide username input field', function () {
+      var setusername = $('.wrap-input').html().length;
+      //console.log(total);
+          expect(setusername).to.equal(0);
+      });
+
+      it('should render login message and user name', function () {
+      var renderLogin = $('.logged-in .greeting').html().length;
+      //console.log(total);
+          expect(setusername).to.equal(0);
+      });
+
       it('should trigger template rendering', function () {
       var renderedDiv = $('.slides .owner-input').length;
       //console.log(total);
@@ -56,8 +68,20 @@
 
       it('should not accept an empty string for a message', function () {
         var userMessage = $('.chat-message').val('');
-        if (userMessage.length <= 0) 
+        if (userMessage.length  <= 0) 
         expect(userMessage.length).to.throw(Error);
+      });
+
+      it('should add message property to constructor', function () {
+        // how to get the result from the server
+      
+        //expect(userMessage).to.throw(Error);
+      });
+
+      it('should add date property to constructor', function () {
+        // how to get the result from the server
+      
+        //expect(userMessage).to.throw(Error);
       });
 
       it('should post to server', function () {
@@ -65,6 +89,7 @@
       
         //expect(userMessage).to.throw(Error);
       });
+
       
       
     });
