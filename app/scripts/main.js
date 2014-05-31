@@ -1,60 +1,116 @@
-// var serverUrl = 'http://tiny-pizza-server.herokuapp.com/collections/chat-messages/';
 
 //$.getJSON(serverUrl).done(setUserData);
 
+//////////////////////////////////////////////////
+// Variables
+//////////////////////////////////////////////////
 
-//// Constructor... prototype?//////
+var serverUrl = 'http://tiny-pizza-server.herokuapp.com/collections/chat-messages/';
 
-function Setuser (userName, userMessage) {
-	this.user = userName;
-	this.message = userMessage;
-	this.time = Date.now();
-	this.meta- "";
-	this.appID = "Nunya"
+
+//////////////////////////////////////////////////
+// Chat Object
+//////////////////////////////////////////////////
+
+function Chat(username) {
+	this.username = username;
 }
 
-Setuser.prototype.sendMessage(message) {
-	alert(message);
-};
-
-/*
-function postUserMessage (message) {
-	$.post('http://tiny-pizza-server.herokuapp.com/collections/chat-messages', message);
-}
-*/
-
-$('.username-button').click(function(){
+/*Chat.prototype.sendMessage(message) {
 	
+	// create data to submit
+	var data = {
+		user: this.username,
+		message: message,
+		time: Date.now(),
+		meta: "",
+		appID: "Nunya"
+	};
+
+	// submit to server
+	$.post(serverUrl, data);
+}*/
+
+//////////////////////////////////////////////////
+// State Functions
+//////////////////////////////////////////////////
+
+function displayLogin () {
+	$('#login').show();
+	$('#signed-in').hide();
+	$('#message-input').hide();
+}
+function displayGreeting (userName) {
+	// to do add user name
+	$('#signed-in').show();
+	$('.greeting span').append(userName);
+	$('#login').hide();
+	$('#message-input').show();
+}
+
+displayLogin();
+
+//////////////////////////////////////////////////
+// Click Events
+//////////////////////////////////////////////////
+
+
+$('#login button').click(function(){
+	// get the username value
 	var userName = $('.username-input').val();
+		// storing the length in a variable to save calculating time.
 	var userLength = userName.length;
-	//console.log(userName);
 
-	// using regex to filter out any special characters from the user name
-	// executes a search for a match between a regular expression and a specified string
-	if (/[^a-zA-Z0-9]/.test(userName)) {    
-		
-		// if condition is false, alert message
-    	alert("Dude, try using some letters or numbers.");
-	    throw new Error ('Invalid user name characters.');
-	
-	// validating user name length
+	// validate the username string
+
+		// executes a search for a match between a regex filter and a specified string
+	if (/[^a-zA-Z0-9]/.test(userName)) {
+
+		alert("Dude, try using some letters or numbers.");
+		throw new Error ('Invalid user name characters.');
+
+		// validating user name length
 	} else if (userLength <= 0 || userLength  > 15) {
-	
-	// alert if user name length is greater than 15 or less than 0
-	    alert('Sorry brah, please select a user name within 1-15 characters.');
-	    throw new Error ('Invalid user name length.');
-	
+		// alert if user name length is greater than 15 or less than 0
+		alert('Sorry brah, please select a user name within 1-15 characters.');
+		throw new Error ('Invalid user name length.');
+
+		//else send value to the object constructor 
 	} else {
-	//else send value to the object constructor 
-		var coolGal = new Setuser(userName);
-		dcoolGal.sendMessage('Stuff');
-		console.log(coolGal);
+		chat = new Chat(userName);
+		//console.log(chat);
 	}
+	// call display greeting function
+	displayGreeting(userName);
+
 	// clears value in username input
-	$('.username-input').val('');
+	$('.username-input').val('');	
 });
+
+
+
+
+$('#signed-in button').click(function(){
+	//reset user name
+
+	// display login
+	displayLogin();
+});
+
+$('.message-button').click(function(){
+	// get message value
+
+	// validates message value
+
+	// post to server
+
+	// resets message field
+
+});
+
+
   	
-$('.message-button').click(function() {
+/*$('.message-button').click(function() {
 	var userMessage = $('.chat-message').val();
 	var messageLength = userMessage.length;
 
@@ -64,6 +120,5 @@ $('.message-button').click(function() {
 	} else {
 
 	}
-
-})
+})*/
 
