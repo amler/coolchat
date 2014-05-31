@@ -9,11 +9,10 @@
       $('.submit').click();
 
       it('should not accept an empty string or max character as a user name', function () {
-        var userName = $('.username-input').val('');
-        var emptyString = function () {
-        emptyString(userName);
-      }
-        expect(emptyString).to.throw(Error);
+        $('.username-input').val('');
+        var userName = $('.username-input').val();
+        
+        expect(userName).to.throw(Error);
       });
 
       it('should not accept more than 15 characters for a user name.', function(){
