@@ -53,68 +53,37 @@ displayLogin();
 //////////////////////////////////////////////////
 
 function timeSince(date) {
-    
+
+    if (date == undefined) {
+    	return "";
+    } else if (isNaN(date) == true) {
+    	return date;
+    } else if (date.trim() == "") {
+    	return '';
+    } 
+
+    date = parseInt(date);
     date = new Date(date);
-    // how many seconds ago / by thousand to get seconds
-    var seconds = Math.floor((new Date() - date) / 1000);
-    //   how many seconds ago divided by seconds in a year
-    var interval = Math.floor(seconds / 31536000);
     
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
-    var weekdays = [ 'Sun','Mon', 'Tue', 'Wed', 'Thu','Fri', 'Sat'];
+	var month = months[date.getMonth()]
+	var day = date.getDate();
+	var year = date.getFullYear();
+	var hours = date.getHours();
+	var minutes = date.getMinutes();
 
+	if (minutes < 10) {
+		minutes = '0' + minutes;
+	}
 
-    if (interval > 1) {
-        // return Nov 25, 2013 --- 
-        var year = date.getFullYear();
-        return months[date.getMonth()] + ' ' + date.getDate() + ', ' + year;
+    if (hours < 12 ) {
+        return month + '. ' + day + ', ' + year + ' @ ' + hours +':'+ minutes + 'AM';
+    } else if (hours >= 12) {
+    	hours = hours - 12;
+        return month + '. ' + day + ', ' + year + ' @ ' + hours +':'+ minutes + 'PM';
     }
 
-    // > 7 days
-    interval = Math.floor(seconds / 604800);
-    if (interval > 1) {
-        // return Apr 9
-        return months[date.getMonth()] + ' ' + date.getDate();
-    }
-
-    // > day
-    interval = Math.floor(seconds / 86400);
-    if (interval > 1) {
-      // return Thursday at 1:20am
-      var day = date.getDay();
-      var weekDay = (weekdays[day]);
-      var hours = date.getHours();
-      var minutes = date.getMinutes();
-      if (hours < 12) {
-        // return Thursday at 10:00am
-        return weekDay + ' at ' + hours + ':' + minutes + 'am';
-     
-      } else if (hours > 12){
-        //return Thursday at 1:00pm
-        hours = hours - 12;
-        return weekDay + ' at ' + hours + ':' + minutes + 'pm';
-
-      } else if (hours == 12) {
-        // return Thursday 12:00pm
-        return weekDay + ' at ' + hours + ':' + minutes + 'pm';
-      }
-      return interval + ' days';
-    }
-
-    // > hour
-    interval = Math.floor(seconds / 3600);
-    if (interval > 1) {
-        return interval + ' hours';
-    }
-    interval = Math.floor(seconds / 60);
-    
-    // > minute
-    if (interval > 1) {
-        return interval + ' minutes';
-    }
-
-    return Math.floor(seconds) + ' seconds';
 }
 
 
@@ -139,19 +108,19 @@ function renderData(usersData) {
 			// actually rendering the content to div with the class repocontent.  
 			$('.chat-content').prepend(rendered);
 
-			// track last id 
+			// track last id make global variable
 			lastId = message._id;
 		}
 	});
-
-	console.log(lastId);
+	//console.log(lastId);
 }
+
 function getNewChats() {
 	$.getJSON(serverUrl).done(renderData);
 }
+
 getNewChats();
 setInterval(getNewChats, 60000);
-
 
 //////////////////////////////////////////////////
 // Click Events
