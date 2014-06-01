@@ -1,11 +1,5 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
-/* font-family: ‘Lato’, Arial, serif; 
-font-weight: 400, 900;
-
-font-family: 'Josefin Slab', serif;
-font-weight: 400; */
-
 body {
     font-family: ‘Lato’, Arial, serif;
     height: 100%;
@@ -34,7 +28,7 @@ p {
         padding: 0;
         text-shadow: 0px -2px 1px rgba(0,0,0,0.5);
         
-        & span {
+        span {
             color: #FFF;
             font-family: 'Josefin Slab', serif;
         }
@@ -177,14 +171,19 @@ p {
             position: absolute;
             bottom: 0;
             top: 0;
-            
+            width: 175px;
+            padding:5px;
+            min-height: 50px;
+
             background-color: #F08;
             color: #FFF;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 900;
             text-align: center;
-            line-height: 100px;
-            width: 175px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
         }
 
         .user-messages {
@@ -195,6 +194,12 @@ p {
 
             p {
                 padding-top: 5px;
+            }
+
+            img {
+                height: auto;
+                width: auto;
+                max-width: 90%;
             }
         }
 
@@ -212,6 +217,4 @@ p {
         }
     }
 }
-
-
 

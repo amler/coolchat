@@ -45,11 +45,19 @@
             <button class="message-button">Send Message</button>
         </div>
 
+        <!-- Placeholder for message rendering -->
 
-        <!-- Rendering messages -->
         <div class="chat-content"></div>
 
-
+        <script type="text/javascript" id="all-messages">
+            <div class="users"> 
+                <div class="userName"><%= user %></div>
+                <div class="user-messages">
+                    <p><%= message %></p>
+                </div>
+                <div class="time-stamp"><%= time %></div>
+            </div>
+        </script>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
