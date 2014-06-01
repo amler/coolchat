@@ -5,7 +5,8 @@
 
 var serverUrl = 'http://tiny-pizza-server.herokuapp.com/collections/chat-messages/';
 var chat = null;
-var current = 0;
+var lastId = '';
+
 
 //////////////////////////////////////////////////
 // Chat Object
@@ -121,32 +122,36 @@ function timeSince(date) {
 // Render Function
 //////////////////////////////////////////////////
 
-function renderData (usersData) {
+function renderData(usersData) {
 
 	var chatTemplate = $('#all-messages').html();
 	var templateMethod = _.template(chatTemplate);
 	usersData.reverse();
 
 	usersData.forEach(function (message){
-		message.time = timeSince(message.time);
-	// putting each repo in my template to be rendered 
-	var rendered = templateMethod(message);
+		if (lastId < message._id) {
+			
+			message.time = timeSince(message.time);
+			
+			// putting each repo in my template to be rendered
+			var rendered = templateMethod(message);
 
-	// actually rendering the content to div with the class repocontent.  
-	$('.chat-content').append(rendered);
+			// actually rendering the content to div with the class repocontent.  
+			$('.chat-content').prepend(rendered);
 
-	// track last id 
+			// track last id 
+			lastId = message._id;
+		}
+	});
 
-	// intervally check new chats	
-
-  });
+	console.log(lastId);
 }
-
-function newChats (lastid) {
-	// compare last id with most recent
-
-	// if new id render??
+function getNewChats() {
+	$.getJSON(serverUrl).done(renderData);
 }
+getNewChats();
+setInterval(getNewChats, 60000);
+
 
 //////////////////////////////////////////////////
 // Click Events
@@ -205,7 +210,9 @@ $('.message-button').click(function(){
 
 	// resets message field
 	$('.chat-message').val('');
+
+	getNewChats();
 });
 
-$.getJSON(serverUrl).done(renderData);
+
 
