@@ -68,13 +68,14 @@
 
       it('should add null to constructor', function () {
         // how to get the result from the server
-      
         expect(chat).to.be.null;
       });
 
       it('should show login', function () {
         // how to get the result from the server
-      
+        var countLogin = $('#login').length;
+        //console.log(total);
+            expect(countLogin).to.equal(1);
         //expect(userMessage).to.throw(Error);
       }); 
     });
