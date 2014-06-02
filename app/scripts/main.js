@@ -13,20 +13,6 @@ var lastId = '';
 //////////////////////////////////////////////////
 
 function Chat(username) {
-	if (/[^a-zA-Z0-9]/.test(userName)) {
-
-		alert('Dude, try using some letters or numbers.');
-		throw new Error ('Invalid user name characters.');
-		return;
-
-	// validating user name length
-	} else if (userLength <= 0 || userLength  > 15) {
-		
-		// alert if user name length is greater than 15 or less than 0
-		alert('Sorry brah, please select a user name within 1-15 characters.');
-		throw new Error ('Invalid user name length.');
-		return;
-	}
 	this.username = username;
 }
 
@@ -38,7 +24,7 @@ Chat.prototype.sendMessage = function(message) {
 		message: message,
 		time: Date.now(),
 		meta: '',
-		appID: 'secret'
+		appID: 'Nunya'
 	};
 
 	// submit to server
@@ -52,7 +38,7 @@ Chat.prototype.sendMessage = function(message) {
 function displayLogin () {
 	$('#login').show();
 	$('#signed-in').hide();
-	$('#message-input').show();
+	$('#message-input').hide();
 }
 function displayGreeting (userName) {
 	$('#signed-in').show();
@@ -149,7 +135,20 @@ $('#login button').click(function(){
 	// validate the username string
 
 	// executes a search for a match between a regex filter and a specified string
-	
+	if (/[^a-zA-Z0-9]/.test(userName)) {
+
+		alert('Dude, try using some letters or numbers.');
+		throw new Error ('Invalid user name characters.');
+		return;
+
+	// validating user name length
+	} else if (userLength <= 0 || userLength  > 15) {
+		
+		// alert if user name length is greater than 15 or less than 0
+		alert('Sorry brah, please select a user name within 1-15 characters.');
+		throw new Error ('Invalid user name length.');
+		return;
+	}
 	
 	chat = new Chat(userName);
 	
