@@ -56,30 +56,23 @@
     });
   });
   
-  describe('Message Post Click Event', function () {
-    describe('Validates user message and passes user property to setmessage', function () {
+  describe('Log Out Click Event', function () {
+    describe('Should reset username and chat object', function () {
      
-      $('.message-button').click();
+      $('#signed-in button').click();
 
-      it('should not accept an empty string for a message', function () {
-        var userMessage = $('.chat-message').val('');
-        if (userMessage.length  <= 0) 
-        expect(userMessage.length).to.throw(Error);
+      it('should reset value on click', function () {
+        var loggedOut = $('.username-input').val();
+        expect(loggedOut).to.be.empty;
       });
 
-      it('should add message property to constructor', function () {
+      it('should add null to constructor', function () {
         // how to get the result from the server
       
-        //expect(userMessage).to.throw(Error);
+        expect(chat).to.be.null;
       });
 
-      it('should add date property to constructor', function () {
-        // how to get the result from the server
-      
-        //expect(userMessage).to.throw(Error);
-      });
-
-      it('should post to server', function () {
+      it('should show login', function () {
         // how to get the result from the server
       
         //expect(userMessage).to.throw(Error);
@@ -104,17 +97,6 @@
         //expect(userMessage).to.throw(Error);
       });
 
-      it('should add date property to constructor', function () {
-        // how to get the result from the server
-      
-        //expect(userMessage).to.throw(Error);
-      });
-
-      it('should post to server', function () {
-        // how to get the result from the server
-      
-        //expect(userMessage).to.throw(Error);
-      }); 
     });
   });
 
