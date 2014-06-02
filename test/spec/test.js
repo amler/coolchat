@@ -11,24 +11,24 @@
       it('should not accept an empty string or max character as a user name', function () {
         /// Empty
         var userName = $('.username-input').val('');
-        var maxCharacter = function () {
-          maxCharacter(userName);
+        var empty = function () {
+          chat = new Chat(userName);
         }
-        expect(use).to.throw(Error)
+        expect(empty).to.throw(Error)
       });
 
       it('should not accept more than 15 characters for a user name.', function(){
         var userName = $('.username-input').val('verylongassstring');
         var maxCharacter = function () {
-          maxCharacter(userName);
+          chat = new Chat(userName);
         }
-        expect(use).to.throw(Error)
+        expect(maxCharacter).to.throw(Error)
       });
 
       it('should not accept special characters for a user name.', function () {
         var userName = $('.username-input').val('!@#$%^&*()');
         var specialCharacter = function () {
-          specialCharacter(userName);
+          chat = new Chat(userName);
         }
         expect(specialCharacter).to.throw(Error)
       });
@@ -62,6 +62,37 @@
     });
   });
   
+  describe('Message Post Click Event', function () {
+    describe('Validates user message and passes user property to setmessage', function () {
+     
+      $('.message-button').click();
+
+      it('should not accept an empty string for a message', function () {
+        var userMessage = $('.chat-message').val('');
+        if (userMessage.length  <= 0) 
+        expect(userMessage.length).to.throw(Error);
+      });
+
+      it('should add message property to constructor', function () {
+        // how to get the result from the server
+      
+        //expect(userMessage).to.throw(Error);
+      });
+
+      it('should add date property to constructor', function () {
+        // how to get the result from the server
+      
+        //expect(userMessage).to.throw(Error);
+      });
+
+      it('should post to server', function () {
+        // how to get the result from the server
+      
+        //expect(userMessage).to.throw(Error);
+      }); 
+    });
+  });
+
   describe('Message Post Click Event', function () {
     describe('Validates user message and passes user property to setmessage', function () {
      
