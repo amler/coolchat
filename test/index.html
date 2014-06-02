@@ -10,6 +10,8 @@
     <div class="input-target">
     </div>
 
+    
+
 
     <div id="mocha"></div>
     <script src="bower_components/mocha/mocha.js"></script>
@@ -23,10 +25,20 @@
 
     <!-- include source files here... -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
     <script src="scripts/main.js"></script>
     <!-- include spec files here... -->
     <script src="spec/test.js"></script>
+
+     <script type="text/template" id="all-messages">
+            <div class="users"> 
+                <div class="userName"><%= user %></div>
+                <div class="user-messages">
+                    <p><%= message %></p>
+                </div>
+                <div class="time-stamp"><%= time %></div>
+            </div>
+        </script>
 
     <script>window.mochaPhantomJS ? mochaPhantomJS.run() : mocha.run()</script>
 </body>

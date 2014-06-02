@@ -46,8 +46,10 @@ p {
 
         .greeting {
             color: #FFF;
+            font-size: 18px;
             display: inline-block;
             margin: 0 10px 0 0;
+            padding: 10px;
         }
 
         .username-input {
@@ -90,6 +92,10 @@ p {
                 color: #FFF;
             }
         }
+
+        .logout-button {
+            float: right;
+        }
     }
 }
 
@@ -100,7 +106,7 @@ p {
     display: none;
     background-color: #333;
     height: 200px;
-    width: 325px;
+    width: 300px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 
@@ -110,7 +116,7 @@ p {
         height: 100px;
         margin: 20px;
         padding: 10px;
-        width: 280px;
+        width: 250px;
         -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
                -moz-box-sizing: border-box;    /* Firefox, other Gecko */
                     box-sizing: border-box;
@@ -192,8 +198,10 @@ p {
             padding: 10px;
             width: 600px;
 
+
             p {
                 padding-top: 5px;
+                word-wrap: break-word;
             }
 
             img {
@@ -210,7 +218,7 @@ p {
             position: absolute;
             right: 0;
             top: 0;
-            width: 110px;
+            width: 160px;
             -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
                -moz-box-sizing: border-box;    /* Firefox, other Gecko */
                     box-sizing: border-box;

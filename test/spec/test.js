@@ -6,13 +6,15 @@
   describe('User Name Click Event', function () {
     describe('Validates user name and passes user property to Coolchat', function () {
      
-      $('.submit').click();
+      $('#login button').click();
 
       it('should not accept an empty string or max character as a user name', function () {
-        $('.username-input').val('');
-        var userName = $('.username-input').val();
-        
-        expect(userName).to.throw(Error);
+        /// Empty
+        var userName = $('.username-input').val('');
+        var maxCharacter = function () {
+          maxCharacter(userName);
+        }
+        expect(use).to.throw(Error)
       });
 
       it('should not accept more than 15 characters for a user name.', function(){
@@ -20,7 +22,7 @@
         var maxCharacter = function () {
           maxCharacter(userName);
         }
-        expect(maxCharacter).to.throw(Error)
+        expect(use).to.throw(Error)
       });
 
       it('should not accept special characters for a user name.', function () {
@@ -32,12 +34,12 @@
       });
 
       it('should pass user name to be a property of the contructor function', function () {
-    // When using the .val() line would get this as the property jQuery.fn.init[0]}
+      // When using the .val() line would get this as the property jQuery.fn.init[0]}
 
-        var userName = 'Scamler';
-        var coolGal = new Setuser(userName);
+        var userName = $('.username-input').val('Scamler');
+        var chat = new Setuser(userName);
         //console.log(coolGal);
-        coolGal.should.have.property('user', 'Scamler')
+        chat.should.have.property('user', 'Scamler')
       });
 
       it('should hide username input field', function () {
@@ -87,10 +89,7 @@
         // how to get the result from the server
       
         //expect(userMessage).to.throw(Error);
-      });
-
-      
-      
+      }); 
     });
   });
 

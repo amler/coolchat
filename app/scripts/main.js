@@ -38,7 +38,7 @@ Chat.prototype.sendMessage = function(message) {
 function displayLogin () {
 	$('#login').show();
 	$('#signed-in').hide();
-	$('#message-input').hide();
+	$('#message-input').show();
 }
 function displayGreeting (userName) {
 	$('#signed-in').show();
@@ -74,7 +74,7 @@ function timeSince(date) {
 	var minutes = date.getMinutes();
 
 	if (minutes < 10) {
-		minutes = '0' + minutes;
+	 	minutes = '0' + minutes;
 	}
 
     if (hours < 12 ) {
