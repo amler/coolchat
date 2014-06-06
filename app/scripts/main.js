@@ -24,7 +24,7 @@ Chat.prototype.sendMessage = function(message) {
 		message: message,
 		time: Date.now(),
 		meta: '',
-		appID: 'Nunya'
+		appID: 'secret'
 	};
 
 	// submit to server
@@ -134,7 +134,8 @@ $('#login button').click(function(){
 
 	// validate the username string
 
-	// executes a search for a match between a regex filter and a specified string
+	// should have turned into a validate function for testing
+		// executes a search for a match between a regex filter and a specified string
 	if (/[^a-zA-Z0-9]/.test(userName)) {
 
 		alert('Dude, try using some letters or numbers.');

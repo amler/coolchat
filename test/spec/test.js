@@ -10,7 +10,7 @@
       it('should not accept an empty string or max character as a user name', function () {
         // false positive
         $('.username-input').val('');
-        $('#login button').click(function() {
+        var clicked = $('#login button').click(function() {
           var userName = $('.username-input').val();
           expect(userName).to.throw(Error)
         })
@@ -27,7 +27,7 @@
       it('should not accept special characters for a user name.', function () {
         var userName = $('.username-input').val('!@#$%^&*()');
         var specialCharacter = function (userName) {
-          chat = new Chat(userName);
+          
           console.log(userName);
         }
         expect(chat).to.throw(Error)
@@ -88,8 +88,9 @@
 
       it('should not accept an empty string for a message', function () {
         var userMessage = $('.chat-message').val('');
-        if (userMessage.length  <= 0) 
-        expect(userMessage.length).to.throw(Error);
+        if (userMessage.length  <= 0) {
+        expect(userMessage).to.throw(Error);
+        }
       });
 
       it('should add message property to constructor', function () {
